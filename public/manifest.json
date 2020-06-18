@@ -1,6 +1,6 @@
 {
-    "short_name": "GST System",
-    "name": "Blockchain App",
+    "short_name": "GST system",
+    "name": "GST system",
     "icons": [
       {
         "src": "/images/pwa-192x192.png",
