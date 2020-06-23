@@ -6,8 +6,8 @@
 <li> Set up the firebase local server by running <strong> firebase serve </strong> </li>
 </ol>
 
-Team Name: LEARNERS<br>
-Team Members:<ol>
+# Team Name: LEARNERS<br>
+# Team Members:<ol>
   <li>Muskan Maheshwari</li>
   <li>Priyanshu Agarwal</li>
   <li>Priyanshu Arora</li>
