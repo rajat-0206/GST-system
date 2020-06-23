@@ -115,3 +115,18 @@ a, a:hover{
     color: #FFEF5E;
     text-decoration: none;
 }
+
+.buttonprintbill{
+text-align: center;
+}
+.buttonprintbill button{
+  width: 100%;
+  text-align: center;
+  background-color: yellow;
+  border: 0px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
