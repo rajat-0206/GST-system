@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 body{
-    background: yellow;
+    background: #FFEF5E;
     display: flex;
     min-height: 100vh;
 }
@@ -34,7 +34,7 @@ form{
     border: 1px solid rgba(0,0,0,0,2)
 }
 label{
-    color: yellow;
+    color: #FFEF5E;
     margin: 0;
 }
 
@@ -42,7 +42,7 @@ h2 {
     text-align: center;
     font-weight: normal;
     margin-bottom: 20px;
-    color:  yellow;
+    color:  #FFEF5E;
 }
 input{
     display: block;
@@ -53,7 +53,7 @@ input{
     
 }
 input[type="submit"]{
-    background:  yellow;
+    background:  #FFEF5E;
     border: 0;
     color: black;
   font-weight:bold;
@@ -77,4 +77,41 @@ input[type="submit"]:active {
     form{
     width: 95%;    
     }
+}
+
+#grid {
+  margin-top: 20%;
+  width: 90vw;
+  justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5rem;
+  min-width: 10rem;
+  border: 1px solid #FFEF5E;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.card:hover{
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s;
+}
+
+
+article{
+    padding: 10px;
+    color: #FFEF5E;
+    font-size: 1.5rem;
+}
+
+a, a:hover{
+    color: #FFEF5E;
+    text-decoration: none;
 }
