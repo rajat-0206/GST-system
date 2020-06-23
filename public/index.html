@@ -8,6 +8,11 @@
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="/__/firebase/7.15.0/firebase-analytics.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 <link rel="stylesheet" type="text/css" href="styles/fmt.css ">
         <link rel="stylesheet" type="text/css" href="styles/mainsetup.css ">
         <!-- Initialize Firebase -->
@@ -24,7 +29,7 @@
         </title>
         <style> 
         body {
-            background: url('/images/hero_bg_5.jpg');
+            background: url('images/hero_bg_5.jpg');
         background-repeat: no-repeat;
         background-size: cover;
          background-size: fill;
@@ -33,18 +38,30 @@
         </style>
         </head>
         <body>
-<div class="fmt-row"  style="padding: 60px 48px 0px 48px; background-size: 100%;">
-  <div class="fmt-col m17 fmt-center fmt-animate-center">
-    <div class="sub-catch-line" style="color:#f8f8f8">
-    
-      This site is still in development.<br/>
-      We will be live soon.<br>
-      You can see the about section to know us.
-  
-    </div>
-     <div style="margin-top: 80px;" class="fmt-animate-bottom">
-      <a href="about.html" class="button-block">Visit About</a>
-    </div>
+<div class="fmt-row"  style="display:flex;padding: 60px 48px 0px 48px; background-size: 100%;">
+    <a href="login.html">
+    <div class="card" style="width: 18rem; background-color:yellow">
+        <div class="card-body">
+          <h5 class="card-title">Login into your business account</h5>
+        </div>
+      </div>
+      </a>
+      <a href="registration.html">
+      <div class="card" style="width: 18rem; background-color:yellow">
+        
+        <div class="card-body">
+          <h5 class="card-title">Register a new business</h5>
+        </div>
+      </div>
+    </a>
+    <a href="about.html">
+      <div class="card" style="width: 18rem;background-color:yellow">
+        
+        <div class="card-body">
+          <h5 class="card-title">Know more about this portal</h5>
+        </div>
+      </div>
+    </a>
     </div>
 
         </body>
