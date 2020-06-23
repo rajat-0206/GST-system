@@ -7,17 +7,22 @@
 
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-16LE">
+            <meta name="viewport" content="width=device-width, initial-scale=1 max-scale=1 user-scalable=0">
         <script src="/__/firebase/7.15.0/firebase-analytics.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-<link rel="stylesheet" type="text/css" href="styles/fmt.css ">
-        <link rel="stylesheet" type="text/css" href="styles/mainsetup.css ">
         <!-- Initialize Firebase -->
+          <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="/__/firebase/init.js"></script>
         <script src="scripts/web3.min.js"></script>
+        <link rel="stylesheet" href="styles/index.css">
         <script>
             var web3=new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
@@ -27,50 +32,54 @@
         <title>
             GST system
         </title>
-        <style> 
-        body {
-            background: url('images/hero_bg_5.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-         background-size: fill;
-         background-color: #000;
-        }
-        </style>
         </head>
-        <body>
-<div class="fmt-row"  style="display:flex;padding: 60px 48px 0px 48px; background-size: 100%;">
-    <a href="login.html">
-    <div class="card" style="width: 18rem; background-color:yellow">
-        <div class="card-body">
-          <h5 class="card-title">Login into your business account</h5>
-        </div>
-      </div>
-      </a>
-      <a href="registration.html">
-      <div class="card" style="width: 18rem; background-color:yellow">
-        
-        <div class="card-body">
-          <h5 class="card-title">Register a new business</h5>
-        </div>
-      </div>
-    </a>
-    <a href="about.html">
-      <div class="card" style="width: 18rem;background-color:yellow">
-        
-        <div class="card-body">
-          <h5 class="card-title">Know more about this portal</h5>
-        </div>
-      </div>
-    </a>
-    </div>
+        <body>  
 
+          <nav class="navbar-fixed">
+            <div class="nav-wrapper">
+              <a href="index.html" class="brand-logo"><img src="images/pwa-192x192.png" height='60px' width='90px' alt="GST logo">GST System</a>
+            </div>
+          </nav>
+        <div class="w3container">
+          <div class="w3row">
+            <div class="w3column">
+              <a href="login.html">
+              <div class="w3card">
+                <h3>Business Login</h3>
+                <p>Click to login into business account</p>
+              </div>
+            </a>
+            </div>
+          
+            <div class="w3column">
+             <a href="registration.html">
+               <div class="w3card">
+                <h3>Register as a business</h3>
+                <p>Click to register business with government.</p>
+             </div>
+             </a>
+            </div>
+          
+            <div class="w3column">
+             <a href="search.html"><div class="w3card">
+                <h3>Search a bill</h3>
+                <p>Search via aadhar number or bill number</p>
+              </div>
+              </a>
+            </div>
+          </div>
+          </div>
+      <footer class="page-footer">
+            © 2020 ITO
+            <a class="grey-text text-lighten-4 right" href="#!">Managed By - GOI</a>
+        </footer>
         </body>
         <script>
-        if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(function(registration) {
-        console.log('Service Worker Registered');
-    });
+//         if('serviceWorker' in navigator) {
+//     navigator.serviceWorker.register('sw.js').then(function(registration) {
+//         console.log('Service Worker Registered');
+//     });
 
-} else console.log('Your browser does not support the Service-Worker!');
-        </script>
+// } else console.log('Your browser does not support the Service-Worker!');
+//         </script>
 </html>

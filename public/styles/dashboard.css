@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFEF5E;
+  }
+
+.w3container {
+    margin:0px auto;
+    margin-top:30px;
+    width:90%;
+
+}
+/* Float four columns side by side */
+.w3column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.w3row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.w3row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.specialshow {
+    display: none;
+}
+/* Responsive columns */
+@media screen and (max-width: 991px) {
+  .w3column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+.brand-logo{
+  font-size: 20px;
+}
+
+.specialhide {
+    display: none;
+}
+
+.specialshow {
+    display: inline;
+}
+}
+
+/* Style the counter cards */
+.w3card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 30px;
+  text-align: center;
+  background-color: #f1f1f1;
+  min-width:200px;
+  height:300px;
+  line-height: 30px;
+  transition:0.5s ease;
+}
+.w3card p{
+font-size: 20px;
+}
+.w3card:active{
+transform: translateY(10px);
+}
+
+.w3column a {
+color :#333;
+text-decoration: none;
+}
+
+.page-footer {
+position: fixed;
+bottom: 0px;
+background-color: #333;
+width:100%;
+color:#fff;
+height:50px;
+padding:10px;
+font-size: 20px;
+
+}
+.right {
+    float:right;
+    color:#fff;
+}

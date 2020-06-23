@@ -9,54 +9,84 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <style>
-      #black{
-          color: black;
-          font-weight: bold;
-          font-family : Arial, Helvetica, sans-serif;
-      }
-      a:link {
-        color: green;
-        }
-
-        /* visited link */
-        a:visited {
-        color: green;
-        }
-
-        /* mouse over link */
-        a:hover {
-        color: red;
-        }
-
-        /* selected link */
-        a:active {
-        color: yellow;
-        }
-
-  </style>
+  <link rel="stylesheet" href="styles/dashboard.css">
 </head>
 <body>
 
-<div class='hello'>
-<nav class="navbar navbar-expand-sm bg-warning navbar-dark ">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link " id="black" href="#" >Search bill</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="black" href="#">Print bill</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link " id="black" href="#">View all bills</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="images/pwa-192x192.png" height='30px' width='30px' alt="GST logo">GST System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link">Welcome Business</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Generate new Bill</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Search Bill</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Print a Bill</a>
+        </li>
+        <li class="nav-item specialshow">
+          <a class="nav-link" href="index.html">Logout</a>
+        </li>
+      </ul>
+    </div> 
+          <div class="specialhide">
+            <a href="index.html">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+         </a></div>
+    </div>
+  </nav>
+<div class="w3container">
+  <div class="w3row">
+    <div class="w3column">
+      <a>
+      <div class="w3card">
+        <h3>Last Bill details</h3>
+        <p>Item: Laptop</p>
+        <p>Bill Number - 23456</p>
+        <p>Dealer: Dell Computers</p>
+        <p>Buyer's phone number - 7685971971</p>
+      </div>
+    </a>
+    </div>
   
-  <li class="nav-item">
-    <a class="nav-link" id="black" href="#">Report a problem</a>
-  </li>
-</ul>
-</nav>
-</div>
-
-
+    <div class="w3column">
+     <a>
+       <div class="w3card">
+        <h3>Last Tax payed</h3>
+        <p>Amount: 20000</p>
+        <p>Payment Date - 20/05/2020</p>
+        <p>Transaction Number - 437528483518</p>
+        <p>Outstanding : None</p>
+     </div>
+     </a>
+    </div>
+  
+    <div class="w3column">
+     <a>
+       <div class="w3card">
+        <h3>Tax collection this month</h3>
+        <p>Amount: 10000</p>
+        <p>Bill Generated - 75</p>
+        <p>Total Business- 100000</p>
+      </div>
+      </a>
+    </div>
+  </div>
+  </div>
+  <footer class="page-footer">
+    © 2020 ITO
+    <span class="grey-text text-lighten-4 right">Managed By - GOI</span>
+</footer>
 </body>
 </html>
