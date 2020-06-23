@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="styles/loader.css">
+    <script>
+      window.onload = function(){
+        document.getElementById("stop").style.display="none";
+      }
+	</script>
+<link rel="stylesheet" href="styles/loader.css">
 	<title>Registration</title>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +15,16 @@
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body>
-
+	<div class="pageloader" id="stop">
+		<div class="sk-chase">
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		</div>
+	  </div>
     <!-- start register -->
     <form action="">
 	    <h2>BILL DETAILS ARE HERE</h2>

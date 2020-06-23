@@ -1,5 +1,12 @@
 <html>
     <head>
+      <link rel="stylesheet" href="styles/loader.css">
+    <script>
+      window.onload = function(){
+        document.getElementById("stop").style.display="none";
+      }
+	</script>
+<link rel="stylesheet" href="styles/loader.css">
         <link rel ="manifest" href="/manifest.json">
         <link rel='icon' href='images/pwa-192x192.ico'>
         <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -34,7 +41,16 @@
         </title>
         </head>
         <body>  
-
+          <div class="pageloader" id="stop">
+            <div class="sk-chase">
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+              <div class="sk-chase-dot"></div>
+            </div>
+          </div>
           <nav class="navbar-fixed">
             <div class="nav-wrapper">
               <a href="index.html" class="brand-logo"><img src="images/pwa-192x192.png" height='60px' width='90px' alt="GST logo">GST System</a>
