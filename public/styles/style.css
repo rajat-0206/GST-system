@@ -1,12 +1,6 @@
-*{
-    margin: 10px;
-    font-family: sans-serif;
-    box-sizing: border-box;
-}
+
 body{
     background: #FFEF5E;
-    display: flex;
-    min-height: 100vh;
 }
 
 img{
