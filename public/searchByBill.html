@@ -12,8 +12,26 @@
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
+<style>
+  .specialshow {
+    display: none;
+}
+/* Responsive columns */
+@media screen and (max-width: 991px) {
+.specialhide {
+    display: none;
+}
+
+.specialshow {
+    display: inline;
+}
+}
+</style>
 <body>
 	<div class="pageloader" id="stop">
 		<div class="sk-chase">
@@ -46,7 +64,7 @@
           <a class="nav-link" href="searchdashboard.html">Search Bill</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="PrintBill.html">Print a Bill</a>
+          <a class="nav-link" href="about.html">About this portal</a>
         </li>
         <li class="nav-item specialshow">
           <a class="nav-link" href="index.html">Logout</a>
@@ -63,8 +81,9 @@
     <form action="">
 	    <h2>Search by Bill Number</h2>
 	    <label for="bill">Bill Number</label>
-	    <input type="text" name="bill" id="bill">
-	    <input type="submit" value="Search">
+      <input type="text" name="bill" id="bill">
+      <a href="PrintBill.html">
+	    <Button type="button">Search</Button></a>
     </form>
     </div>
 
