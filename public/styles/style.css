@@ -1,18 +1,37 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFEF5E;
+  }
 
-body{
-    background: #FFEF5E;
+.navbar-fixed {
+  position: fixed;
+  top:0px;
+  background-color:#333;
+  width: 100%;
+}
+.nav-wrapper a{
+  color:#fff;
+  text-decoration: none;
+  width:100%;
+  margin:0px auto;
 }
 
-img{
+.nav-wrapper a:hover{
+  color:#fff;
+}
+
+.image{
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    width: 25%;
-    height: 50%;
 }
 
 @media (max-width: 650px){
-    img{
+    .image{
         width: 25%;
         height: 25%;
     }
