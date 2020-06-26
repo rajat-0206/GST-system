@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="styles/loader.css">
+	<script src="scripts/cred.js"></script>
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
@@ -10,67 +11,25 @@
 <link rel="stylesheet" href="styles/loader.css">
 <script src="scripts/web3.min.js"></script>
 <script>
-	if(typeof web3!='undefined'){
-web3=new Web3(web3.currentProvider);
-}else{
-web3=new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-}
-	web3.eth.defaultAccount=web3.eth.accounts[0];
-	var bc = new web3.eth.Contract(
-	[
-	{
-		"inputs": [
-			{
-				"internalType": "int256",
-				"name": "_gstin",
-				"type": "int256"
-			},
-			{
-				"internalType": "string",
-				"name": "_businessname",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_aadharno",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_phoneno",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_pass",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_conpass",
-				"type": "string"
-			}
-		],
-		"name": "addBusiness",
-		"outputs": [],
-		"payable":false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	}
-]);
-var c = bc.at("0xf056699debb4ee0F6C7bf77eDDE5D115739DB586");
-
-
 	function register() {
-		gstin = document.getElementById("GSTIN").value;
+		gstin = document.getElementById("GSTIN").value.toString();
 		name = document.getElementById("Business").value;
-		aadhar =document.getElementById("Aadhar").value;
-		phone = document.getElementById("Phone").value;
+		aadhar =document.getElementById("Aadhar").value.toString();
+		phone = document.getElementById("Phone").value.toString();
 		pass = document.getElementById("Password").value;
 		con  = document.getElementById("Confirm").value;
-		bc.addBusiness(gstin,name,aadhar,phone,pass,con);
-		console.log(bc);
-		window.location.href("login.html");
+		alert(gstin+" "+name+" "+aadhar+" "+phone+" "+pass+" "+con);
+		if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gst = web3.eth.contract(ABI);
+		var reg = gst.at(address);
+		reg.addBusiness(gstin,name,aadhar,phone,pass,con,{gas:3000000});
+		alert("user created");
+		window.location.href = 'login.html';
 	}
 </script>
 	<title>Registration</title>

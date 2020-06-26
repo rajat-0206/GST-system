@@ -12,6 +12,6 @@
     "ethereumjs-testrpc": "^6.0.3",
     "lite-server": "^2.5.4",
     "save": "^2.4.0",
-    "web3": "^0.20.6"
+    "web3": "^0.20.0"
   }
 }

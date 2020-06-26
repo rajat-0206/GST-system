@@ -2,6 +2,8 @@
 <html>
 <head>
 	<link rel="stylesheet" href="styles/loader.css">
+	<script src="scripts/cred.js"></script>
+	<script src="scripts/web3.min.js"></script>
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
@@ -15,6 +17,29 @@
   	<link rel="stylesheet" type="text/css" href="styles/index.css">
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
+
+<script>
+function Login(){
+	var gst = document.getElementById('GSTIN').value.toString();
+	var word = document.getElementById('Password').value;
+	if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gs = web3.eth.contract(ABI);
+		var todo = gs.at(address);
+		var status = todo.businessLogin(gst,word);
+		if(status=="Login Sucessful")
+		{
+			window.location.href = 'dashboard.html';
+		}
+		else{
+			alert("Wrong Creditional");
+		}
+}
+</script>
 <body>
 	<div class="pageloader" id="stop">
 		<div class="sk-chase">
@@ -44,9 +69,7 @@
 	    <input type="text" name="GSTIN" id="GSTIN">
 	    <label for="Password">Password</label>
 		<input type="password" name="Password" id="Password">
-		<a href="dashboard.html">
-		<input type="button" value="Login" style="background-color: #FFEF5E;">
-		</a>
+		<input type="button" value="Login" onclick="Login()" style="background-color: #FFEF5E;">
     </form>
     <!-- end login form -->
 
