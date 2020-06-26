@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <title>Book</title>
+<script src="/scripts/web3.min.js"></script>
+<script>
+web3=new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+web3.eth.defaultAccount=web3.eth.accounts[0];
+var bc=web3.eth.contract([
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_author",
+				"type": "string"
+			},
+			{
+				"name": "_title",
+				"type": "string"
+			}
+		],
+		"name": "setBook",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getBook",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]);
+
+var c=bc.at("0x03225832a2D11c74C520339546b865A20Feab6bE");
+
+function updatebook(){
+var a=document.getElementById("author").value;
+var t=document.getElementById("title").value;
+c.setBook(a,t);
+}
+function showbook(){
+c.getBook(function(error,result){
+if(!error){
+alert(result[0]+","+result[1]);
+}
+});
+}
+</script>
+</head>
+<body>
+    
+Author <input type="text" id="author"><br>
+Title <input type="text" id="title"><br>
+<input type="Button" value="Update" id="update" onClick="updatebook()">
+<input type="Button" value="Show" id="update" onClick="showbook()">
+</body>
+</html>

@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="styles/loader.css">
+  <script src="scripts/cred.js"></script>
+	<script src="scripts/web3.min.js"></script>
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
+        if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gs = web3.eth.contract(ABI);
+		var todo = gs.at(address);
+    var status = todo.getBusinessDetails();
+    console.log(status[1]);
+    document.getElementById("Name").innerHTML = 'Welcome '+status[1];
       }
     </script>
   <title>Dashboard</title>
@@ -35,7 +48,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link">Welcome Business</a>
+          <a class="nav-link" id="Name"></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Home</a>
@@ -98,6 +111,9 @@
     </div>
   </div>
   </div>
+  <br>
+  <br>
+  <br>
   <footer class="page-footer">
     © 2020 ITO
     <span class="grey-text text-lighten-4 right">Managed By - GOI</span>

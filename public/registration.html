@@ -2,12 +2,36 @@
 <html>
 <head>
 	<link rel="stylesheet" href="styles/loader.css">
+	<script src="scripts/cred.js"></script>
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
       }
 	</script>
 <link rel="stylesheet" href="styles/loader.css">
+<script src="scripts/web3.min.js"></script>
+<script>
+	function register() {
+		gstin = document.getElementById("GSTIN").value.toString();
+		name = document.getElementById("Business").value;
+		aadhar =document.getElementById("Aadhar").value.toString();
+		phone = document.getElementById("Phone").value.toString();
+		pass = document.getElementById("Password").value;
+		con  = document.getElementById("Confirm").value;
+		alert(gstin+" "+name+" "+aadhar+" "+phone+" "+pass+" "+con);
+		if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gst = web3.eth.contract(ABI);
+		var reg = gst.at(address);
+		reg.addBusiness(gstin,name,aadhar,phone,pass,con,{gas:3000000});
+		alert("user created");
+		window.location.href = 'login.html';
+	}
+</script>
 	<title>Registration</title>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -37,17 +61,16 @@
 	    <label for="GSTIN">GSTIN</label>
 	    <input type="text" name="GSTIN" id="GSTIN">
 	    <label for="Business Name">Business Name</label>
-	    <input type="text" name="Business Name" id="Business Name">
+	    <input type="text" name="Business Name" id="Business">
 	    <label for="Aadhar Number">Aadhar Number</label>
-	    <input type="text" name="Aadhar Number" id="Aadhar Number">
+	    <input type="text" name="Aadhar Number" id="Aadhar">
 	    <label for="Phone Number">Phone Number</label>
-	    <input type="text" name="Phone Number" id="Phone Number">
+	    <input type="text" name="Phone Number" id="Phone">
 	    <label for="Password">Password</label>
 	    <input type="password" name="Password" id="Password">
 	    <label for="Confirm Password">Confirm Password</label>
-		<input type="password" name="Confirm Password" id="Confirm Password">
-		<a href="index.html">
-	    <input type="button" value="Register" style="background-color: #FFEF5E;"></a>
+		<input type="password" name="Confirm Password" id="Confirm">
+	    <input type="button" value="Register" style="background-color: #FFEF5E;" onclick="register()">
      </form>
      </div>
      <!-- end register -->
