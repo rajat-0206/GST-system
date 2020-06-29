@@ -12,13 +12,21 @@
 <link rel="stylesheet" href="styles/loader.css">
 	<title>Login</title>
 	<meta charset="utf-8">
-  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	  <!-- Compiled and minified JavaScript -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   	<link rel="stylesheet" type="text/css" href="styles/index.css">
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 
 <script>
+	if(document.cookie!="None")
+    {
+      window.location.href="dashboard.html";
+    }
 function Login(){
 	var gst = document.getElementById('GSTIN').value.toString();
 	var word = document.getElementById('Password').value;
@@ -32,11 +40,13 @@ function Login(){
 		var todo = gs.at(address);
 		var status = todo.businessLogin(gst,word);
 		if(status=="Login Sucessful")
-		{
+		{	
+			document.cookie = gst+";expires=Fri, 01 Jan 2021 12:00:00 UTC; path=/";
+			console.log(document.cookie);
 			window.location.href = 'dashboard.html';
 		}
 		else{
-			alert("Wrong Creditional");
+			M.toast({html: 'Wrong Creditional', classes: 'rounded black'});
 		}
 }
 </script>
@@ -66,9 +76,9 @@ function Login(){
     <form action="">
 	    <h2>Login</h2>
 	    <label for="GSTIN">GSTIN</label>
-	    <input type="text" name="GSTIN" id="GSTIN">
+	    <input type="text" name="GSTIN" id="GSTIN" style="color: #fff;" required>
 	    <label for="Password">Password</label>
-		<input type="password" name="Password" id="Password">
+		<input type="password" name="Password" id="Password" style="color: #fff;" required>
 		<input type="button" value="Login" onclick="Login()" style="background-color: #FFEF5E;">
     </form>
     <!-- end login form -->

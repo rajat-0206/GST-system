@@ -88,7 +88,12 @@ var ABI = [
 	},
 	{
 		"constant": true,
-		"inputs": [],
+		"inputs": [
+			{
+				"name": "_gstin",
+				"type": "string"
+			}
+		],
 		"name": "getBusinessDetails",
 		"outputs": [
 			{
@@ -179,4 +184,4 @@ var ABI = [
 	}
 ];
 
-var address = "0x2F57Ce3dD00Ac136f94bD5Ba6f02450dC4013F07";
+var address = "0x5cE5F6FD6294FcD50e92059f6390ec5d7730Db26";

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script>
+    if(document.cookie=="None")
+    {
+      window.location.href="index.html";
+    }
+  </script>
   <link rel="stylesheet" href="styles/loader.css">
   <script src="scripts/cred.js"></script>
 	<script src="scripts/web3.min.js"></script>
@@ -15,7 +21,7 @@
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
 		var todo = gs.at(address);
-    var status = todo.getBusinessDetails();
+    var status = todo.getBusinessDetails(document.cookie);
     console.log(status[1]);
     document.getElementById("Name").innerHTML = 'Welcome '+status[1];
       }
@@ -63,13 +69,12 @@
           <a class="nav-link" href="about.html">About this portal</a>
         </li>
         <li class="nav-item specialshow">
-          <a class="nav-link" href="index.html">Logout</a>
+          <a class="nav-link" onclick="logout()">Logout</a>
         </li>
       </ul>
     </div> 
           <div class="specialhide">
-            <a href="index.html">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+        <button class="btn btn-outline-success my-2 my-sm-0" onclick="logout()">Logout</button>
          </a></div>
     </div>
   </nav>
@@ -119,4 +124,10 @@
     <span class="grey-text text-lighten-4 right">Managed By - GOI</span>
 </footer>
 </body>
+<script>
+  function logout(){
+    document.cookie ="None;expires=Fri, 01 Jan 2021 12:00:00 UTC; path=/";
+    window.location.href='index.html';
+  }
+</script>
 </html>
