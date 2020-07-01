@@ -142,6 +142,10 @@ var ABI = [
 			{
 				"name": "",
 				"type": "int256"
+			},
+			{
+				"name": "",
+				"type": "int256"
 			}
 		],
 		"payable": false,
@@ -216,7 +220,52 @@ var ABI = [
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_gstin",
+				"type": "string"
+			}
+		],
+		"name": "serchbygst",
+		"outputs": [
+			{
+				"components": [
+					{
+						"name": "billno",
+						"type": "int256"
+					},
+					{
+						"name": "gstno",
+						"type": "string"
+					},
+					{
+						"name": "aadhar",
+						"type": "string"
+					},
+					{
+						"name": "phnno",
+						"type": "string"
+					},
+					{
+						"name": "billamnt",
+						"type": "int256"
+					},
+					{
+						"name": "gstamnt",
+						"type": "int256"
+					}
+				],
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ];
 
-var address = "0x53Fe3BeDB8f2Ed7d6e59D9F2223C9e2881aE2B4a";
+const address = "0xc3A439184C3F9c6AE4bD5FF9226d64A2A469c5D2";

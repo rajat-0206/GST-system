@@ -20,6 +20,7 @@
     console.log(status[2]);
     document.getElementById("Name").innerHTML = 'Welcome '+status[2];
     document.getElementById("balance").innerHTML = 'Balance in Account- '+status[6];
+    document.getElementById("taxpaid").innerHTML = 'Total Tax paid- '+status[7];
       }
     </script>
   <title>Dashboard</title>
@@ -92,7 +93,7 @@
      <a>
        <div class="w3card">
         <h3>Tax collection this month</h3>
-        <p>Tax paid: 10000</p>
+        <p id='taxpaid'></p>
         <p id="balance"></p>
       </div>
       </a>
