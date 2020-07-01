@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script>
-    if(document.cookie=="None")
-    {
-      window.location.href="index.html";
-    }
-  </script>
   <link rel="stylesheet" href="styles/loader.css">
   <script src="scripts/cred.js"></script>
 	<script src="scripts/web3.min.js"></script>
@@ -20,10 +14,12 @@
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
-		var todo = gs.at(address);
+    var todo = gs.at(address);
+    console.log(document.cookie);
     var status = todo.getBusinessDetails(document.cookie);
-    console.log(status[1]);
-    document.getElementById("Name").innerHTML = 'Welcome '+status[1];
+    console.log(status[2]);
+    document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+    document.getElementById("balance").innerHTML = 'Balance in Account- '+status[6];
       }
     </script>
   <title>Dashboard</title>
@@ -60,12 +56,6 @@
           <a class="nav-link" href="dashboard.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="GenerateBill.html">Generate new Bill</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="searchdashboard.html">Search Bill</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="about.html">About this portal</a>
         </li>
         <li class="nav-item specialshow">
@@ -81,25 +71,19 @@
 <div class="w3container">
   <div class="w3row">
     <div class="w3column">
-      <a>
+      <a href="GenerateBill.html">
       <div class="w3card">
-        <h3>Last Bill details</h3>
-        <p>Item: Laptop</p>
-        <p>Bill Number - 23456</p>
-        <p>Dealer: Dell Computers</p>
-        <p>Buyer's phone number - 7685971971</p>
+        <h3>Generate new bill</h3>
+        <p>Click here to generate a new Bill</p>
       </div>
     </a>
     </div>
   
     <div class="w3column">
-     <a>
+     <a href="searchdashboard.html">
        <div class="w3card">
-        <h3>Last Tax payed</h3>
-        <p>Amount: 20000</p>
-        <p>Payment Date - 20/05/2020</p>
-        <p>Transaction Number - 437528483518</p>
-        <p>Outstanding : None</p>
+        <h3> Search for Bill</h3>
+        <p>Click here to search for a bill</p>
      </div>
      </a>
     </div>
@@ -108,9 +92,8 @@
      <a>
        <div class="w3card">
         <h3>Tax collection this month</h3>
-        <p>Amount: 10000</p>
-        <p>Bill Generated - 75</p>
-        <p>Total Business- 100000</p>
+        <p>Tax paid: 10000</p>
+        <p id="balance"></p>
       </div>
       </a>
     </div>
@@ -126,7 +109,7 @@
 </body>
 <script>
   function logout(){
-    document.cookie ="None;expires=Fri, 01 Jan 2021 12:00:00 UTC; path=/";
+    document.cookie =" ";
     window.location.href='index.html';
   }
 </script>

@@ -2,10 +2,47 @@
 <html>
 <head>
 	<link rel="stylesheet" href="styles/loader.css">
+	<script src="scripts/cred.js"></script>
+	<script src="scripts/web3.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	  <!-- Compiled and minified JavaScript -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
-      }
+        if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gs = web3.eth.contract(ABI);
+    var todo = gs.at(address);
+    console.log(document.cookie);
+    var status = todo.getBusinessDetails(document.cookie);
+    console.log(status[2]);
+	document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+	  }
+	  function generatebill(){
+		  bill = document.getElementById('bill').value;
+		  gstin = document.cookie;
+		  aadhar = document.getElementById('aadhar').value;
+		  phoneno = document.getElementById('phoneno').value;
+		  billamt = document.getElementById('amount').value;
+		  gstamt = document.getElementById('gst').value;
+		  alert(gstin);
+		  if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gs = web3.eth.contract(ABI);
+		var todo = gs.at(address);
+		todo.addbilldetails(bill,gstin,aadhar,phoneno,billamt,gstamt,{gas:3000000});
+			M.toast({html: 'Bill Generated Successfully', classes: 'rounded black'});
+}
 	</script>
 <link rel="stylesheet" href="styles/loader.css">
 	<title>Generate Bill</title>
@@ -51,16 +88,10 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 		  <ul class="navbar-nav">
 			<li class="nav-item active">
-			  <a class="nav-link">Welcome Business</a>
+			  <a class="nav-link" id="Name"></a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="dashboard.html">Home</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="GenerateBill.html">Generate new Bill</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="searchdashboard.html">Search Bill</a>
 			</li>
 			<li class="nav-item">
 			  <a class="nav-link" href="about.html">About this portal</a>
@@ -78,22 +109,18 @@
 	  </nav>
     <!-- start register -->
     <form action="">
-	    <h2>GENERATE NEW BILL</h2>
-	    <label for="GSTIN">GSTIN</label>
-	    <input type="text" name="GSTIN" id="GSTIN">
-	    <label for="Business Name">Business Name</label>
-	    <input type="text" name="Business Name" id="Business Name">
+		<h2>GENERATE NEW BILL</h2>
+		<label for="GSTIN">Bill Number</label>
+	    <input type="text" name="bill no" id="bill">
 	    <label for="Aadhar Number">Customer's Aadhar Number</label>
-	    <input type="text" name="Aadhar Number" id="Aadhar Number">
+		<input type="text" name="Aadhar Number" id="aadhar">
+		<label for="Phone">Customer's Phone Number</label>
+	    <input type="text" name="Phone Number" id="phoneno">
 	    <label for="Total amount paid">Total Amount Paid</label>
-	    <input type="text" name="Total amount paid" id="TotalAmountPaid">
+	    <input type="text" name="Total amount paid" id="amount">
       <label for="Total gst paid">Total GST Paid</label>
-	    <input type="text" name="Total Gst paid" id="TotalGSTpaid">
-	    <label for="Date">Date</label>
-	    <input type="date" name="Date" id="Date">
-      <label for="appt">Time</label>
-      <input type="time" id="appt" name="appt">
-      <input type="submit" value="Generate this bill">
+	    <input type="text" name="Total Gst paid" id="gst">
+      <input type="button" value="Generate this bill" onclick="generatebill()">
      </form>
      <!-- end register -->
 

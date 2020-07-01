@@ -23,10 +23,7 @@
 </head>
 
 <script>
-	if(document.cookie!="None")
-    {
-      window.location.href="dashboard.html";
-    }
+
 function Login(){
 	var gst = document.getElementById('GSTIN').value.toString();
 	var word = document.getElementById('Password').value;
@@ -40,8 +37,7 @@ function Login(){
 		var todo = gs.at(address);
 		var status = todo.businessLogin(gst,word);
 		if(status=="Login Sucessful")
-		{	
-			document.cookie = gst+";expires=Fri, 01 Jan 2021 12:00:00 UTC; path=/";
+		{	document.cookie = gst+"; expires=Fri, 1 Jan 2021 12:00:00 UTC";
 			console.log(document.cookie);
 			window.location.href = 'dashboard.html';
 		}

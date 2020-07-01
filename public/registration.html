@@ -8,10 +8,7 @@
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script src="scripts/cred.js"></script>
     <script>
-		if(document.cookie!="None")
-    {
-      window.location.href="dashboard.html";
-    }
+	
       window.onload = function(){
         document.getElementById("stop").style.display="none";
       }
@@ -30,12 +27,14 @@
 	}
 	function register() {
 		var flag=0;
+		accno = document.getElementById('accno').value;
 		gstin = document.getElementById("GSTIN").value.toString();
 		name = document.getElementById("Business").value;
 		aadhar =document.getElementById("Aadhar").value.toString();
 		phone = document.getElementById("Phone").value.toString();
 		pass = document.getElementById("Password").value;
 		con  = document.getElementById("Confirm").value;
+		bal = document.getElementById('balance').value;
 		if(isNaN(gstin))
 		{
 			M.toast({html: 'GST number must be in digits', classes: 'rounded black'});
@@ -90,7 +89,7 @@
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gst = web3.eth.contract(ABI);
 		var reg = gst.at(address);
-		reg.addBusiness(gstin,name,aadhar,phone,pass,con,{gas:3000000});
+		reg.addBusiness(accno,gstin,name,aadhar,phone,pass,bal,{gas:3000000});
 		alert("user created");
 		window.location.href = 'login.html';
 	}
@@ -121,7 +120,9 @@
     <!-- start register -->
     <div class="container" style="margin-top: 100px;">
     <form action="">
-	    <h2>Registration</h2>
+		<h2>Registration</h2>
+		<label for="accno">Account Number</label>
+	    <input type="text" name="accno" id="accno" style="color: #fff;">
 	    <label for="GSTIN">GSTIN</label>
 	    <input type="text" name="GSTIN" id="GSTIN" style="color: #fff;">
 	    <label for="Business Name">Business Name</label>
@@ -129,10 +130,13 @@
 	    <label for="Aadhar Number">Aadhar Number</label>
 	    <input type="text" name="Aadhar Number" id="Aadhar" style="color: #fff;">
 	    <label for="Phone Number">Phone Number</label>
-	    <input type="text" name="Phone Number" id="Phone" style="color: #fff;">
+		<input type="text" name="Phone Number" id="Phone" style="color: #fff;">
+		<label for="amount">Enter Balance</label>
+	    <input type="text" name="balance" id="balance" style="color: #fff;">
 	    <label for="Password">Password</label>
 	    <input type="password" name="Password" id="Password" style="color: #fff;">
-	    <label for="Confirm Password">Confirm Password</label>
+		<label for="Confirm Password">Confirm Password</label>
+		
 		<input type="password" name="Confirm Password" id="Confirm" style="color: #fff;">
 	    <input type="button" value="Register" style="background-color: #FFEF5E;" onclick="register()">
      </form>

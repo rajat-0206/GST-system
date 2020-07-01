@@ -11,6 +11,10 @@ var ABI = [
 				"type": "string"
 			},
 			{
+				"name": "_aadhar",
+				"type": "string"
+			},
+			{
 				"name": "_phoneno",
 				"type": "string"
 			},
@@ -33,6 +37,10 @@ var ABI = [
 		"constant": false,
 		"inputs": [
 			{
+				"name": "_accno",
+				"type": "string"
+			},
+			{
 				"name": "_gstin",
 				"type": "string"
 			},
@@ -53,8 +61,8 @@ var ABI = [
 				"type": "string"
 			},
 			{
-				"name": "_confirmpass",
-				"type": "string"
+				"name": "_accbal",
+				"type": "int256"
 			}
 		],
 		"name": "addBusiness",
@@ -62,6 +70,17 @@ var ABI = [
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_amount",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
 		"constant": true,
@@ -115,6 +134,14 @@ var ABI = [
 			{
 				"name": "",
 				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
+				"type": "int256"
 			}
 		],
 		"payable": false,
@@ -129,6 +156,10 @@ var ABI = [
 			{
 				"name": "",
 				"type": "int256"
+			},
+			{
+				"name": "",
+				"type": "string"
 			},
 			{
 				"name": "",
@@ -171,6 +202,10 @@ var ABI = [
 			},
 			{
 				"name": "",
+				"type": "string"
+			},
+			{
+				"name": "",
 				"type": "int256"
 			},
 			{
@@ -184,4 +219,4 @@ var ABI = [
 	}
 ];
 
-var address = "0x5cE5F6FD6294FcD50e92059f6390ec5d7730Db26";
+var address = "0x53Fe3BeDB8f2Ed7d6e59D9F2223C9e2881aE2B4a";
