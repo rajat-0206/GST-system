@@ -42,10 +42,9 @@
 			web3.eth.defaultAccount = web3.eth.accounts[0];
 			var gs = web3.eth.contract(ABI);
 			var todo = gs.at(address);
-			var status = todo.businessLogin(uname, word);
-			if (status == "Login Successful") {
-				document.cookie =
-					uname + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+			var status = todo.governmentLogin(uname, word);
+			if (status == "Login Sucessful") {
+				document.cookie =uname + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
 				console.log(document.cookie);
 				window.location.href = "govdashboard.html";
 			} else {

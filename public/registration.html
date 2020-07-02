@@ -80,7 +80,6 @@
 			flag=1;
 		}
 		if(flag==0){
-		alert(gstin+" "+name+" "+aadhar+" "+phone+" "+pass+" "+con);
 		if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
@@ -90,7 +89,7 @@
 		var gst = web3.eth.contract(ABI);
 		var reg = gst.at(address);
 		reg.addBusiness(accno,gstin,name,aadhar,phone,pass,bal,{gas:3000000});
-		alert("user created");
+		M.toast({html: 'User Created', classes: 'rounded black'});
 		window.location.href = 'login.html';
 	}
 }

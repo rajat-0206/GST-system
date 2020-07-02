@@ -76,6 +76,14 @@ var ABI = [
 			{
 				"name": "_amount",
 				"type": "int256"
+			},
+			{
+				"name": "username",
+				"type": "string"
+			},
+			{
+				"name": "password",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -158,6 +166,24 @@ var ABI = [
 	},
 	{
 		"constant": true,
+		"inputs": [],
+		"name": "getGovt",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256"
+			},
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
 		"inputs": [
 			{
 				"name": "_gvtuser",
@@ -173,40 +199,6 @@ var ABI = [
 			{
 				"name": "",
 				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "gstbilldetails",
-		"outputs": [
-			{
-				"name": "",
-				"type": "int256"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "string"
-			},
-			{
-				"name": "",
-				"type": "int256"
-			},
-			{
-				"name": "",
-				"type": "int256"
 			}
 		],
 		"payable": false,
@@ -251,45 +243,7 @@ var ABI = [
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_aadhar",
-				"type": "string"
-			}
-		],
-		"name": "serchbyaadhar",
-		"outputs": [
-			{
-				"name": "",
-				"type": "int256[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "_gstin",
-				"type": "string"
-			}
-		],
-		"name": "serchbygst",
-		"outputs": [
-			{
-				"name": "",
-				"type": "int256[]"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
 	}
 ];
 
-const address = "0x2A4aE0be74C1FA88bEF47783fdB5543Eb7B1DFBD";
+const address = "0x41c907d4D17170B03Ee6c5ec443E0B3203e513b7";
