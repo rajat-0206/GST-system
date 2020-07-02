@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles/loader.css">
+  <script src="scripts/cred.js"></script>
+  <script src="scripts/web3.min.js"></script>
+    <script>
+      window.onload = function(){
+        document.getElementById("stop").style.display="none";
+        if(typeof web3!='undefined'){
+        web3=new Web3(web3.currentProvider);
+    }else{
+        web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+    }
+    web3.eth.defaultAccount=web3.eth.accounts[0];
+    var gs = web3.eth.contract(ABI);
+    var todo = gs.at(address);
+    console.log(document.cookie);
+    var status = todo.getBusinessDetails(document.cookie);
+    console.log(status[2]);
+    // document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+    // document.getElementById("balance").innerHTML = 'Balance in Account- '+status[6];
+    // document.getElementById("taxpaid").innerHTML = 'Total Tax paid- '+status[7];
+      }
+    </script>
+  <title>Government Dashboard</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+  <div class="pageloader" id="stop">
+    <div class="sk-chase">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="images/pwa-192x192.png" height='30px' width='30px' alt="GST logo">GST System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" id="Name">Welcome Government</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="govdashboard.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about.html">About this portal</a>
+        </li>
+        <li class="nav-item specialshow">
+          <a class="nav-link" onclick="logout()">Logout</a>
+        </li>
+      </ul>
+    </div> 
+          <div class="specialhide">
+        <button class="btn btn-outline-success my-2 my-sm-0" onclick="logout()">Logout</button>
+         </a></div>
+    </div>
+  </nav>
+<div class="w3container">
+  <div class="w3row">
+    <div class="w3column">
+      <a href="#">
+      <div class="w3card">
+        <h3>Total no. of business registered</h3>
+        <p>1098</p>
+      </div>
+    </a>
+    </div>
+  
+    <div class="w3column">
+     <a href="#">
+       <div class="w3card">
+        <h3> Total GST recieved</h3>
+        <p>76265</p>
+     </div>
+     </a>
+    </div>
+  
+    <div class="w3column">
+     <a href="govsearch.html">
+       <div class="w3card">
+        <h3> Search for Bill</h3>
+        <p>Click here to search for a bill</p>
+     </div>
+     </a>
+    </div>
+  </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <footer class="page-footer">
+    © 2020 ITO
+    <span class="grey-text text-lighten-4 right">Managed By - GOI</span>
+</footer>
+</body>
+<script>
+  function logout(){
+    document.cookie =" ";
+    window.location.href='index.html';
+  }
+</script>
+</html>
