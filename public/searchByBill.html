@@ -82,6 +82,12 @@ p{
           <a class="nav-link" href="dashboard.html">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="GenerateBill.html">Generate new Bill</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="searchByBill.html">Search Bill</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="about.html">About this portal</a>
         </li>
         <li class="nav-item specialshow">
@@ -133,7 +139,7 @@ p{
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    result = todo.searchBill(bill,{gas:3000000});
+    result = todo.searchBill(bill,document.cookie,{gas:3000000});
     if(result[0]=="")
     {
       M.toast({html: 'No such bill found', classes: 'rounded black'});

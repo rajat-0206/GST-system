@@ -102,23 +102,9 @@ p{
     </form>
     <form action="" style="display:none" id="form2">
       <h2>BILL DETAILS ARE HERE</h2>
-      <label for="bill">Bill Number</label>
-        <p id='billno'></p>
-        <label for="GSTIN">GSTIN</label>
-        <p id="gstin"></p>
-        <label for="Business Name">Business Name</label>
-        <p id='name'></p>
-        <label for="Aadhar Number">Customer's Aadhar Number</label>
-        <p id='aadhar'></p>
-        <label for="Total amount paid">Total Amount Paid</label>
-        <p id=amount></p>
-        <label for="Total gst paid">Total GST Paid</label>
-        <p id='gst'></p>
-        <button onclick="window.print()">Print this bill</button>
-        <br><br>
-        <button class="btn btn-primary" style="float: left;">Previous</button>
-        &nbsp;
-        <button class="btn btn-primary"style="float: right;">Next</button>
+      <ul id="billdetails">
+        <ul></ul>
+     
       </div>
      
     </form>
@@ -140,17 +126,19 @@ function printbill(){
     result = todo.serchbygst(bill,{gas:3000000});
     if(result[0]=="")
     {
-      M.toast({html: 'No such bill found', classes: 'rounded black'});
+      M.toast({html: 'No bill paid yet found', classes: 'rounded black'});
     }
     else{
-    document.getElementById('form1').style.display ='none';
+      document.getElementById('form1').style.display ='none';
     document.getElementById('form2').style.display ='block';
-document.getElementById('billno').innerHTML = result[0];
-document.getElementById('gstin').innerHTML = result[1];
-document.getElementById('aadhar').innerHTML = result[2];
-document.getElementById('name').innerHTML = document.cookie;
-document.getElementById('amount').innerHTML = result[5];
-document.getElementById('gst').innerHTML = result[6];
+        ul = document.getElementById('billdetails');
+        for(i in result)
+        { obj = JSON.parse(i);
+          console.log(obj);
+        // li = document.createElement('li');
+        // li.appendChild(document.createTextNode(i));
+        // ul.appendChild(li);
+        }
 currentbill=6;
     }
 

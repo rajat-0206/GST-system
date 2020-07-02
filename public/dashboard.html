@@ -21,6 +21,7 @@
     document.getElementById("Name").innerHTML = 'Welcome '+status[2];
     document.getElementById("balance").innerHTML = 'Balance in Account- '+status[6];
     document.getElementById("taxpaid").innerHTML = 'Total Tax paid- '+status[7];
+    document.getElementById("billgenerated").innerHTML = 'Number of bill generated - '+status[8];
       }
     </script>
   <title>Dashboard</title>
@@ -81,7 +82,7 @@
     </div>
   
     <div class="w3column">
-     <a href="searchdashboard.html">
+     <a href="searchByBill.html">
        <div class="w3card">
         <h3> Search for Bill</h3>
         <p>Click here to search for a bill</p>
@@ -95,6 +96,7 @@
         <h3>Tax collection this month</h3>
         <p id='taxpaid'></p>
         <p id="balance"></p>
+        <p id="billgenerated"></p>
       </div>
       </a>
     </div>

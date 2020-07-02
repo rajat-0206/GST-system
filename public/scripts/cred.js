@@ -146,6 +146,33 @@ var ABI = [
 			{
 				"name": "",
 				"type": "int256"
+			},
+			{
+				"name": "",
+				"type": "int256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "_gvtuser",
+				"type": "string"
+			},
+			{
+				"name": "_gvtpassword",
+				"type": "string"
+			}
+		],
+		"name": "governmentLogin",
+		"outputs": [
+			{
+				"name": "",
+				"type": "string"
 			}
 		],
 		"payable": false,
@@ -192,6 +219,10 @@ var ABI = [
 			{
 				"name": "_billno",
 				"type": "int256"
+			},
+			{
+				"name": "_gstin",
+				"type": "string"
 			}
 		],
 		"name": "searchBill",
@@ -225,6 +256,25 @@ var ABI = [
 		"constant": true,
 		"inputs": [
 			{
+				"name": "_aadhar",
+				"type": "string"
+			}
+		],
+		"name": "serchbyaadhar",
+		"outputs": [
+			{
+				"name": "",
+				"type": "int256[]"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
 				"name": "_gstin",
 				"type": "string"
 			}
@@ -232,34 +282,8 @@ var ABI = [
 		"name": "serchbygst",
 		"outputs": [
 			{
-				"components": [
-					{
-						"name": "billno",
-						"type": "int256"
-					},
-					{
-						"name": "gstno",
-						"type": "string"
-					},
-					{
-						"name": "aadhar",
-						"type": "string"
-					},
-					{
-						"name": "phnno",
-						"type": "string"
-					},
-					{
-						"name": "billamnt",
-						"type": "int256"
-					},
-					{
-						"name": "gstamnt",
-						"type": "int256"
-					}
-				],
 				"name": "",
-				"type": "tuple[]"
+				"type": "int256[]"
 			}
 		],
 		"payable": false,
@@ -268,4 +292,4 @@ var ABI = [
 	}
 ];
 
-const address = "0xc3A439184C3F9c6AE4bD5FF9226d64A2A469c5D2";
+const address = "0x2A4aE0be74C1FA88bEF47783fdB5543Eb7B1DFBD";
