@@ -2,7 +2,7 @@
         scroll-behavior: smooth;
     }
     .back-ground{
-    background: url('/images/hero_bg_1.jpg');
+    background: url('../images/hero_bg_1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-size: fill;
@@ -13,7 +13,7 @@
     height:620px;
 }
 #section2 {
-    background: url('/images/hero_bg_2.png');
+    background: url('../images/hero_bg_2.png');
     height: 680px;
      background-repeat: no-repeat;
     background-size: cover;
@@ -22,7 +22,7 @@
 }
 
 #section3 {
-    background: url('/images/hero_bg_3.jpg');
+    background: url('../images/hero_bg_3.jpg');
     height: 680px;
      background-repeat: no-repeat;
     background-size: cover;
