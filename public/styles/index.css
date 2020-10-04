@@ -4,7 +4,7 @@
   
   body {
     font-family: Arial, Helvetica, sans-serif;
-    background: url('/images/india.jpg');
+    background: url('../images/india.jpg');
     background-repeat: no-repeat;
     background-size: cover,contain;
   }
@@ -50,7 +50,7 @@
   /* Responsive columns */
   @media screen and (max-width: 991px) {
     body {
-      background:url("/images/indiam.jpg");
+      background:url("../images/indiam.jpg");
       background-position: center;
     }
     .w3column {
