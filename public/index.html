@@ -1,36 +1,38 @@
 <html>
-    <head>
-      <link rel="stylesheet" href="styles/loader.css">
+  <head>
+    <link rel="stylesheet" href="styles/loader.css">
     <script>
       window.onload = function(){
         setTimeout(
-    function() {
-      document.getElementById('stop').style.display='none';
-    }, 2000);
+          function() {
+            document.getElementById('stop').style.display='none';
+            }, 2000);
       }
 
-	</script>
-<link rel="stylesheet" href="styles/loader.css">
+    </script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="/__/firebase/7.15.0/firebase-app.js"></script>
+        <link rel="stylesheet" href="styles/loader.css">
         <link rel ="manifest" href="/manifest.json">
         <link rel='icon' href='images/pwa-192x192.ico'>
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="/__/firebase/7.15.0/firebase-app.js"></script>
+        
 
         <!-- TODO: Add SDKs for Firebase products that you want to use
             https://firebase.google.com/docs/web/setup#available-libraries -->
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-16LE">
-            <meta name="viewport" content="width=device-width, initial-scale=1 max-scale=1 user-scalable=0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-16LE">
+        <meta name="viewport" content="width=device-width, initial-scale=1 max-scale=1 user-scalable=0">
         <script src="/__/firebase/7.15.0/firebase-analytics.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!-- Initialize Firebase -->
           <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script src="/__/firebase/init.js"></script>
         <link rel="stylesheet" href="styles/index.css">
         <!-- <script src="scripts/web3.min.js"></script>
@@ -42,10 +44,10 @@
             console.log(contractreference);
         </script> -->
         <title>
-            GST system
+            GST System
         </title>
-        </head>
-        <body>  
+    </head>
+    <body>  
           <div class="pageloader" id="stop">
             <div class="sk-chase">
               <div class="sk-chase-dot"></div>
@@ -61,31 +63,31 @@
               <a href="index.html" class="brand-logo"><img src="images/pwa-192x192.png" height='60px' width='90px' alt="GST logo">GST System</a>
             </div>
           </nav>
-        <div class="w3container">
-          <div class="w3row">
-            <div class="w3column">
-              <a href="login.html">
+
+          <div class="w3column">
+            <a href="registration.html">
               <div class="w3card">
-                <h3>Business Login</h3>
-                <p>Click to login into business account</p>
-              </div>
+               <h3>Register as a business</h3>
+               <p>Register your Business with government of India</p>
+            </div>
             </a>
-            </div>
-          
-            <div class="w3column">
-             <a href="registration.html">
-               <div class="w3card">
-                <h3>Register as a business</h3>
-                <p>Click to register business with government.</p>
-             </div>
-             </a>
-            </div>
+           </div>
+          <div class="w3container">
+            <div class="w3row">
+              <div class="w3column">
+                <a href="login.html">
+                <div class="w3card">
+                  <h3>Business Login</h3>
+                  <p>Login into your Business account</p>
+                </div>
+              </a>
+              </div>
 
             <div class="w3column">
               <a href="govlogin.html">
               <div class="w3card">
                 <h3>Government Login</h3>
-                <p>Click to login into government account</p>
+                <p>Login into your Government account</p>
               </div>
             </a>
             </div>
@@ -95,17 +97,18 @@
           <br>
           <br>
           <br>
-      <footer class="page-footer">
+      <footer class="page-footer center">
             © 2020 ITO
-            <a class="grey-text text-lighten-4 right" href="#!">Managed By - GOI</a>
+            <a class="grey-text text-lighten-4" href="#">Managed By - GOI</a>
         </footer>
         </body>
         <script>
         if('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').then(function(registration) {
-        console.log('Service Worker Registered');
-    });
-
-} else console.log('Your browser does not support the Service-Worker!');
+          navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('Service Worker Registered');
+          });
+        }
+        else console.log('Your browser does not support the Service-Worker!');
         </script>
+    </body>
 </html>
