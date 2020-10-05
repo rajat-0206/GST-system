@@ -61,13 +61,14 @@ form{
     margin-top: 20px;
     width: 50%;
     max-width: 500px;
-    background: black;
+    background: rgb(48, 45, 45);
     padding:  30px;
-    border: 1px solid rgba(0,0,0,0,2)
+    border: 1px solid rgba(0,0,0,0.2)
 }
 label{
-    color: #FFEF5E;
+    color: #e9dc6a;
     margin: 0;
+    font-size: 16px;
 }
 
 h2 {
@@ -81,15 +82,15 @@ input{
     padding: 5px;
     width:  100%;
     margin-bottom: 20px;
-    font-size: 15px;
+    font-size: 20px;
     
 }
 input[type="submit"]{
     background:  #FFEF5E;
     border: 0;
     color: black;
-  font-weight:bold;
-    opacity: 0,8;
+    font-weight:bold;
+    opacity: 0.8;
     cursor: pointer;
     border-radius: 5px;
     margin-top: 30px;

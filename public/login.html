@@ -7,8 +7,7 @@
 	<link rel='icon' href='images/pwa-192x192.ico'>
     <script>
       window.onload = function(){
-		document.getElementById("stop").style.display="none";
-		window.ethereum.enable();
+        document.getElementById("stop").style.display="none";
       }
 	</script>
 <link rel="stylesheet" href="styles/loader.css">
@@ -32,23 +31,20 @@ function Login(){
 	if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
 		var todo = gs.at(address);
-		var result = todo.businessLogin(gst,word,(err,status) => {
-			if(!err){
-				if(status=="Login Sucessful")
-				{	localStorage.setItem("gstno", gst);
-					window.location.href = 'dashboard.html';
-				}
-				else{
-					M.toast({html: 'Wrong Creditional', classes: 'rounded black'});
-				}
-			}
-			});
-		
+		var status = todo.businessLogin(gst,word);
+		if(status=="Login Sucessful")
+		{	document.cookie = gst+"; expires=Fri, 1 Jan 2021 12:00:00 UTC";
+			console.log(document.cookie);
+			window.location.href = 'dashboard.html';
+		}
+		else{
+			M.toast({html: 'Wrong Creditional', classes: 'rounded black'});
+		}
 }
 </script>
 <body>
@@ -85,6 +81,11 @@ function Login(){
     <!-- end login form -->
 
     </div>
+    <!-- Footer -->
+	<footer class="page-footer center">
+		© 2020 ITO
+		<a class="grey-text text-lighten-4" href="#">Managed By - GOI</a>
+	</footer>
 
 </body>
 </html>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="styles/loader.css">
   <script src="scripts/cred.js"></script>
 	<script src="scripts/web3.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -25,7 +24,7 @@
     }
 </script>
 <link rel="stylesheet" href="styles/loader.css">
-	<title>Search by Bill Number</title>
+	<title>Search by GSTIN</title>
 	<meta charset="utf-8">
   	<meta name="viewport" content="width=device-width, initial-scale=1">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -67,7 +66,6 @@ p{
 		  <div class="sk-chase-dot"></div>
 		</div>
 	  </div>
-
 	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#"><img src="images/pwa-192x192.png" height='30px' width='30px' alt="GST logo">GST System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,16 +74,10 @@ p{
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" id='Name'></a>
+          <a class="nav-link" id="Name"></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="dashboard.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="GenerateBill.html">Generate new Bill</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="searchByBill.html">Search Bill</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="about.html">About this portal</a>
@@ -101,36 +93,28 @@ p{
          </a></div>
     </div>
   </nav>
-	<div class="container" id='contain'>
+	<div class="container">
     <form action="" id="form1">
-	    <h2>Search by Bill Number</h2>
-	    <label for="bill">Bill Number</label>
-      <input type="text" name="bill" id="bill">
-	    <Button type="button" onclick="printbill()">Search</Button>
+	    <h2>Search by GST Number</h2>
+	    <label for="GSTIN">GSTIN</label>
+      <input type="text" name="GSTIN" id="gstin">
+	    <button type="button" onclick="printbill()">Search</button>
     </form>
     <form action="" style="display:none" id="form2">
       <h2>BILL DETAILS ARE HERE</h2>
-      <label for="bill">Bill Number</label>
-        <p id='billno'></p>
-        <label for="GSTIN">GSTIN</label>
-        <p id="gstin"></p>
-        <label for="Phone">Customer Phone Number</label>
-        <p id='name'></p>
-        <label for="Aadhar Number">Customer's Aadhar Number</label>
-        <p id='aadhar'></p>
-        <label for="Total amount paid">Total Amount Paid</label>
-        <p id=amount></p>
-        <label for="Total gst paid">Total GST Paid</label>
-        <p id='gst'></p>
-        <button onclick="window.print()">Print this bill</button>
+      <ul id="billdetails">
+        <ul></ul>
+     
       </div>
+     
     </form>
+    
     </div>
-    <br>
-    <br>
+<br><br>
 <script>
-  function printbill(){
-    bill = document.getElementById('bill').value;
+var currentbill = 0;
+function printbill(){
+    bill = document.getElementById('gstin').value;
     if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
@@ -139,20 +123,23 @@ p{
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    result = todo.searchBill(bill,document.cookie,{gas:3000000});
+    result = todo.serchbygst(bill,{gas:3000000});
     if(result[0]=="")
     {
-      M.toast({html: 'No such bill found', classes: 'rounded black'});
+      M.toast({html: 'No bill paid yet found', classes: 'rounded black'});
     }
     else{
-    document.getElementById('form1').style.display ='none';
+      document.getElementById('form1').style.display ='none';
     document.getElementById('form2').style.display ='block';
-document.getElementById('billno').innerHTML = bill;
-document.getElementById('gstin').innerHTML = result[0];
-document.getElementById('aadhar').innerHTML = result[1];
-document.getElementById('name').innerHTML = result[2];
-document.getElementById('amount').innerHTML = result[3];
-document.getElementById('gst').innerHTML = result[4];
+        ul = document.getElementById('billdetails');
+        for(i in result)
+        { obj = JSON.parse(i);
+          console.log(obj);
+        // li = document.createElement('li');
+        // li.appendChild(document.createTextNode(i));
+        // ul.appendChild(li);
+        }
+currentbill=6;
     }
 
   }

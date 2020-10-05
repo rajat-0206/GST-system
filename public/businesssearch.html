@@ -1,85 +1,77 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <link rel="stylesheet" href="styles/loader.css">
   <link rel='icon' href='images/pwa-192x192.ico'>
   <script src="scripts/cred.js"></script>
-  <script src="scripts/web3.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	<script src="scripts/web3.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-    window.onload = function () {
-      document.getElementById("stop").style.display = "none";
-      window.ethereum.enable();
-      if (typeof web3 != 'undefined') {
-        web3 = new Web3(web3.currentProvider);
-      } else {
-        web3 = new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
-      }
-      web3.eth.defaultAccount = web3.eth.accounts[0];
-      var gs = web3.eth.contract(ABI);
-      var todo = gs.at(address);
-      // var status = todo.getBusinessDetails(document.cookie);
-      // console.log(status[2]);
-      // document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+	  <!-- Compiled and minified JavaScript -->
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      window.onload = function(){
+        document.getElementById("stop").style.display="none";
+        if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gs = web3.eth.contract(ABI);
+    var todo = gs.at(address);
+    // var status = todo.getBusinessDetails(document.cookie);
+    // console.log(status[2]);
+	// document.getElementById("Name").innerHTML = 'Welcome '+status[2];
     }
-  </script>
-  <link rel="stylesheet" href="styles/loader.css">
-  <title>Business Search</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</script>
+<link rel="stylesheet" href="styles/loader.css">
+	<title>Business Search</title>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <style>
   .specialshow {
     display: none;
-  }
+}
+/* Responsive columns */
+@media screen and (max-width: 991px) {
+.specialhide {
+    display: none;
+}
 
-  /* Responsive columns */
-  @media screen and (max-width: 991px) {
-    .specialhide {
-      display: none;
-    }
-
-    .specialshow {
-      display: inline;
-    }
-  }
-
-  input {
-    color: #fff;
-  }
-
-  p {
-    color: #fff;
-    margin-top: 5px;
-  }
+.specialshow {
+    display: inline;
+}
+}
+input{
+  color:#fff;
+}
+p{
+  color:#fff;
+  margin-top:5px;
+}
 </style>
-
 <body>
-  <div class="pageloader" id="stop">
-    <div class="sk-chase">
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-    </div>
-  </div>
+	<div class="pageloader" id="stop">
+		<div class="sk-chase">
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		  <div class="sk-chase-dot"></div>
+		</div>
+	  </div>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img src="images/pwa-192x192.png" height='30px' width='30px' alt="GST logo">GST
-      System</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><img src="images/pwa-192x192.png" height='30px' width='30px' alt="GST logo">GST System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -103,74 +95,70 @@
           <a class="nav-link" href="index.html">Logout</a>
         </li>
       </ul>
-    </div>
-    <div class="specialhide">
-      <a href="index.html">
+    </div> 
+          <div class="specialhide">
+            <a href="index.html">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
-      </a></div>
+         </a></div>
     </div>
   </nav>
-  <div class="container" id='contain'>
+	<div class="container" id='contain'>
     <form action="" id="form1">
       <h2>Search for Business</h2>
       <label for="gstin">GST Number</label>
       <input type="text" name="gstin" id="gstin" placeholder="Enter GST number of business">
-      <Button type="button" onclick="bsearch()">Search</Button>
+	    <Button type="button" onclick="bsearch()">Search</Button>
     </form>
     <form action="" style="display:none" id="form2">
       <h2>BUSINESS DETAILS ARE HERE</h2>
       <label for="accno">Account Number</label>
-      <p id='accno'></p>
-      <label for="GSTIN">GSTIN</label>
-      <p id="gstno"></p>
-      <label for="name">Business Name</label>
-      <p id="name"></p>
-      <label for="Phone">Customer Phone Number</label>
-      <p id='phone'></p>
-      <label for="Aadhar Number">Customer's Aadhar Number</label>
-      <p id='aadhar'></p>
-      <label for="Total gst paid">Total GST Paid</label>
-      <p id='gst'></p>
-      <label for="billgen">Total Bill Generated</label>
-      <p id='billgen'></p>
-  </div>
-  </form>
-  </div>
-  <br>
-  <br>
-  <script>
-    function bsearch() {
-      gstin = document.getElementById('gstin').value;
-      if (typeof web3 != 'undefined') {
-        web3 = new Web3(web3.currentProvider);
-      } else {
-        web3 = new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
-      }
-      web3.eth.defaultAccount = web3.eth.accounts[0];
-      var gs = web3.eth.contract(ABI);
-      var todo = gs.at(address);
-      data = todo.getBusinessDetails(gstin, { gas: 3000000 }, (err, result) => {
-        if (!err) {
-          if (result[0] == "") {
-            M.toast({ html: 'Business not registered', classes: 'rounded black' });
-          }
-          else {
-            document.getElementById('form1').style.display = 'none';
-            document.getElementById('form2').style.display = 'block';
-            document.getElementById('accno').innerHTML = result[0];
-            document.getElementById('gstno').innerHTML = result[1];
-            document.getElementById('aadhar').innerHTML = result[3];
-            document.getElementById('name').innerHTML = result[2];
-            document.getElementById('phone').innerHTML = result[4];
-            document.getElementById('gst').innerHTML = result[7];
-            document.getElementById('billgen').innerHTML = result[8];
-          }
-
-        }
-      });
-
+        <p id='accno'></p>
+        <label for="GSTIN">GSTIN</label>
+        <p id="gstno"></p>
+        <label for="name">Business Name</label>
+        <p id="name"></p>
+        <label for="Phone">Customer Phone Number</label>
+        <p id='phone'></p>
+        <label for="Aadhar Number">Customer's Aadhar Number</label>
+        <p id='aadhar'></p>
+        <label for="Total gst paid">Total GST Paid</label>
+        <p id='gst'></p>
+        <label for="billgen">Total Bill Generated</label>
+        <p id='billgen'></p>
+      </div>
+    </form>
+    </div>
+    <br>
+    <br>
+<script>
+  function bsearch(){
+    gstin = document.getElementById('gstin').value;
+    if(typeof web3!='undefined'){
+				web3=new Web3(web3.currentProvider);
+		}else{
+				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+		}
+		web3.eth.defaultAccount=web3.eth.accounts[0];
+		var gs = web3.eth.contract(ABI);
+    var todo = gs.at(address);
+    result = todo.getBusinessDetails(gstin,{gas:3000000});
+    if(result[0]=="")
+    {
+      M.toast({html: 'Business not registered', classes: 'rounded black'});
     }
-  </script>
-</body>
+    else{
+    document.getElementById('form1').style.display ='none';
+    document.getElementById('form2').style.display ='block';
+    document.getElementById('accno').innerHTML = result[0];
+document.getElementById('gstno').innerHTML = result[1];
+document.getElementById('aadhar').innerHTML = result[3];
+document.getElementById('name').innerHTML = result[2];
+document.getElementById('phone').innerHTML = result[4];
+document.getElementById('gst').innerHTML = result[7];
+document.getElementById('billgen').innerHTML = result[8];
+    }
 
+  }
+</script>
+</body>
 </html>

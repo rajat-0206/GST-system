@@ -1,0 +1,17 @@
+{
+  "name": "gst",
+  "version": "1.0.0",
+  "description": "GST system with blockchain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethereumjs-testrpc": "^6.0.3",
+    "lite-server": "^2.5.4",
+    "save": "^2.4.0",
+    "web3": "^0.20.0"
+  }
+}
