@@ -8,9 +8,10 @@
 		<script>
 			window.onload = function () {
 				document.getElementById("stop").style.display = "none";
+				window.ethereum.enable();
 			};
 		</script>
-		
+		<link rel="stylesheet" href="styles/loader.css" />
 		<title>Government Login</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -30,6 +31,7 @@
 	</head>
 
 	<script>
+		
 		function Login() {
 			var uname = document.getElementById("uname").value.toString();
 			var word = document.getElementById("Password").value;
@@ -37,23 +39,26 @@
 				web3 = new Web3(web3.currentProvider);
 			} else {
 				web3 = new Web3(
-					new Web3.providers.HttpProvider("http://localhost:7545")
+					new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today")
 				);
 			}
 			web3.eth.defaultAccount = web3.eth.accounts[0];
 			var gs = web3.eth.contract(ABI);
 			var todo = gs.at(address);
-			var status = todo.governmentLogin(uname, word);
-			if (status == "Login Sucessful") {
-				document.cookie =uname + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
-				console.log(document.cookie);
-				window.location.href = "govdashboard.html";
-			} else {
-				M.toast({
-					html: "Wrong Creditional",
-					classes: "rounded black",
-				});
-			}
+			var status = todo.governmentLogin(uname, word,(err,result) => {
+				if(!err){
+					if (result == "Login Sucessful") {
+						localStorage.removeItem("gstno");
+						window.location.href = "govdashboard.html";
+					} else {
+						M.toast({
+							html: "Wrong Creditional",
+							classes: "rounded black",
+						});
+					}
+				}
+			});
+			
 		}
 	</script>
 	<body>
@@ -113,10 +118,5 @@
 			</form>
 			<!-- end login form -->
 		</div>
-		<!-- Footer -->
-		<footer class="page-footer center">
-           	 © 2020 ITO
-            	<a class="grey-text text-lighten-4" href="#">Managed By - GOI</a>
-        	</footer>
 	</body>
 </html>

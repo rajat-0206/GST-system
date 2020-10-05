@@ -6,8 +6,7 @@
     font-family: Arial, Helvetica, sans-serif;
     background: url('../images/india.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: fixed;
+    background-size: cover,contain;
   }
  
 .navbar-fixed {
@@ -26,17 +25,16 @@
   color:#fff;
 }
   .w3container {
-      margin:100px;      
-      width:100%;
+      margin:0px auto;
+      margin-top:80px;
+      width:90%;
+
   }
-  /* Float three columns side by side */
+  /* Float four columns side by side */
   .w3column {
     float: left;
     width: 25%;
-    padding:10px;
-    margin-left: 80px;
-    margin-top: 40px;
-    
+    padding: 0 10px;
   }
 
   /* Remove extra left and right margins, due to padding */
@@ -50,12 +48,10 @@
   }
   
   /* Responsive columns */
-  @media screen (min-width:700px and max-width: 991px) {
+  @media screen and (max-width: 991px) {
     body {
-      background:url("/images/indiam.jpg");
-      background-repeat: no-repeat;
-    background-size: cover;
-    background-position: fixed;
+      background:url("../images/indiam.jpg");
+      background-position: center;
     }
     .w3column {
       width: 100%;
@@ -73,14 +69,7 @@
     padding: 16px;
     border-radius: 30px;
     text-align: center;
-    background-color: rgb(96, 225, 248);
-    /* Linear gradiant for all the browsers */
-    background-image: linear-gradient(to right, rgb(0, 140, 255),rgb(96, 225, 248));
-    background: -moz-linear-gradient(to right, rgb(0, 140, 255),rgb(96, 225, 248));
-
-    background: -webkit-linear-gradient(to right, rgb(0, 140, 255),rgb(96, 225, 248));
-    background: -o-linear-gradient(to right, rgb(0, 140, 255),rgb(96, 225, 248));
-    background: -ms-linear-gradient(to right, rgb(0, 140, 255),rgb(96, 225, 248));
+    background-color: #f1f1f1;
     min-width:200px;
     height:300px;
     line-height: 30px;
@@ -94,8 +83,7 @@
 }
 
 .w3card:hover {
-  color: #fff;
-  background: rgb(60, 60, 212);
+  color:red;
 }
 .w3column a {
   color :#333;
@@ -103,20 +91,12 @@
 }
 
 .page-footer {
-  position: scroll;
+  position: fixed;
   bottom: 0px;
   background-color: #333;
   width:100%;
-  height:70px;
-  padding:20px;
+  height:50px;
+  padding:10px;
   font-size: 20px;
-  
 
-}
-h3{  
-  font-size: 38px;
-  margin: 30px 20px;
-}
-p{
-  margin:15px;
 }
