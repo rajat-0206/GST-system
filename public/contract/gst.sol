@@ -8,7 +8,6 @@ contract GSTCHAIN{
     string gvtuser ;
     string gvtpassword; 
     
-    
     constructor(int _amount,string username,string password) public {
         amount = _amount;
         gvtuser = username;

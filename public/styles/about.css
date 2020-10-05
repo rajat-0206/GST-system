@@ -32,7 +32,7 @@
 
 }
 #section4 {
-    background: url('/images/hero_bg_4.png');
+    background: url('../images/hero_bg_4.png');
     height: 680px;
      background-repeat: no-repeat;
     background-size: cover;
@@ -41,7 +41,7 @@
 }
 
 #section5 {
-    background: url('/images/hero_bg_4.jpg');
+    background: url('../images/hero_bg_4.jpg');
     height: 680px;
      background-repeat: no-repeat;
     background-size: cover;

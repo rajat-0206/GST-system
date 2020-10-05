@@ -11,38 +11,43 @@
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
       window.onload = function(){
-        document.getElementById("stop").style.display="none";
+		document.getElementById("stop").style.display="none";
+			window.ethereum.enable();
         if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    console.log(document.cookie);
-    var status = todo.getBusinessDetails(document.cookie);
-    console.log(status[2]);
-	document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+    var result = todo.getBusinessDetails(localStorage.getItem("gstno"),(err,status)=>{
+		if(!err)
+		document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+	});
+	
 	  }
 	  function generatebill(){
 		  bill = document.getElementById('bill').value;
-		  gstin = document.cookie;
+		  gstin = localStorage.getItem("gstno");
 		  aadhar = document.getElementById('aadhar').value;
 		  phoneno = document.getElementById('phoneno').value;
 		  billamt = document.getElementById('amount').value;
 		  gstamt = document.getElementById('gst').value;
-		  alert(gstin);
 		  if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
 		var todo = gs.at(address);
-		todo.addbilldetails(bill,gstin,aadhar,phoneno,billamt,gstamt,{gas:3000000});
-			M.toast({html: 'Bill Generated Successfully', classes: 'rounded black'});
+		todo.addbilldetails(bill,gstin,aadhar,phoneno,billamt,gstamt,{gas:3000000},(err,result)=>{
+			if(!err){
+				M.toast({html: 'Bill Generated Successfully', classes: 'rounded black'});
+			}
+		});
+			
 }
 	</script>
 <link rel="stylesheet" href="styles/loader.css">
