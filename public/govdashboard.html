@@ -8,18 +8,20 @@
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
+        window.ethereum.enable();
         if(typeof web3!='undefined'){
         web3=new Web3(web3.currentProvider);
     }else{
-        web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+        web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
     }
     web3.eth.defaultAccount=web3.eth.accounts[0];
     var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    // console.log(document.cookie);
-     var status = todo.getGovt();
-     document.getElementById('amount').innerHTML = status[0];
-     document.getElementById('totalb').innerHTML = status[1];
+     var result = todo.getGovt((err,status)=> {
+      document.getElementById('amount').innerHTML = status[0];
+      document.getElementById('totalb').innerHTML = status[1];
+     });
+     
     // console.log(status[2]);
     // document.getElementById("Name").innerHTML = 'Welcome '+status[2];
     // document.getElementById("balance").innerHTML = 'Balance in Account- '+status[6];
@@ -121,7 +123,7 @@
 </body>
 <script>
   function logout(){
-    document.cookie =" ";
+    localStorage.removeItem("gstno");
     window.location.href='index.html';
   }
 </script>
