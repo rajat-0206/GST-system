@@ -11,17 +11,21 @@
     <script>
       window.onload = function(){
         document.getElementById("stop").style.display="none";
+        window.ethereum.enable();
         if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    var status = todo.getBusinessDetails(document.cookie);
-    console.log(status[2]);
-	document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+    var result = todo.getBusinessDetails(localStorage.getItem("gstno"),(err,status)=>{
+      if(!err){
+        document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+      }
+    });
+	
     }
 </script>
 <link rel="stylesheet" href="styles/loader.css">
@@ -134,13 +138,15 @@ p{
     if(typeof web3!='undefined'){
 				web3=new Web3(web3.currentProvider);
 		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+				web3=new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
 		}
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    result = todo.searchBill(bill,document.cookie,{gas:3000000});
-    if(result[0]=="")
+    gstno = localStorage.getItem("gstno");
+    status = todo.searchBill(bill,gstno,{gas:3000000},(err,result)=>{
+      if(!err){
+        if(result[0]=="")
     {
       M.toast({html: 'No such bill found', classes: 'rounded black'});
     }
@@ -154,6 +160,9 @@ document.getElementById('name').innerHTML = result[2];
 document.getElementById('amount').innerHTML = result[3];
 document.getElementById('gst').innerHTML = result[4];
     }
+      }
+    });
+    
 
   }
 </script>
