@@ -18,9 +18,12 @@
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    var status = todo.getBusinessDetails(document.cookie);
-    console.log(status[2]);
-	document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+    var result = todo.getBusinessDetails(localStorage.getItem("gstno"),(err,status)=>{
+      if(!err){
+        document.getElementById("Name").innerHTML = 'Welcome '+status[2];
+      }
+    });
+  
     }
 </script>
 <link rel="stylesheet" href="styles/loader.css">
@@ -112,7 +115,6 @@ p{
     </div>
 <br><br>
 <script>
-var currentbill = 0;
 function printbill(){
     bill = document.getElementById('gstin').value;
     if(typeof web3!='undefined'){
@@ -123,24 +125,26 @@ function printbill(){
 		web3.eth.defaultAccount=web3.eth.accounts[0];
 		var gs = web3.eth.contract(ABI);
     var todo = gs.at(address);
-    result = todo.serchbygst(bill,{gas:3000000});
-    if(result[0]=="")
+    gstno = localStorage.getItem("gstno");
+    status = todo.searchbygst(bill,gstno,{gas:3000000},(err,result)=>{
+      if(!err){
+        if(result[0]=="")
     {
-      M.toast({html: 'No bill paid yet found', classes: 'rounded black'});
+      M.toast({html: 'No such bill found', classes: 'rounded black'});
     }
     else{
-      document.getElementById('form1').style.display ='none';
+    document.getElementById('form1').style.display ='none';
     document.getElementById('form2').style.display ='block';
-        ul = document.getElementById('billdetails');
-        for(i in result)
-        { obj = JSON.parse(i);
-          console.log(obj);
-        // li = document.createElement('li');
-        // li.appendChild(document.createTextNode(i));
-        // ul.appendChild(li);
-        }
-currentbill=6;
+document.getElementById('billno').innerHTML = bill;
+document.getElementById('gstin').innerHTML = result[0];
+document.getElementById('aadhar').innerHTML = result[1];
+document.getElementById('name').innerHTML = result[2];
+document.getElementById('amount').innerHTML = result[3];
+document.getElementById('gst').innerHTML = result[4];
     }
+      }
+    });
+    
 
   }
 </script>

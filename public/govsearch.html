@@ -141,26 +141,27 @@ p{
 		}else{
 				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 		}
-		web3.eth.defaultAccount=web3.eth.accounts[0];
-		var gs = web3.eth.contract(ABI);
-    var todo = gs.at(address);
-    result = todo.searchBill(bill,gstin,{gas:3000000});
-    if(result[0]=="")
-    {
-      M.toast({html: 'No such bill found', classes: 'rounded black'});
-    }
-    else{
-    document.getElementById('form1').style.display ='none';
-    document.getElementById('form2').style.display ='block';
-document.getElementById('billno').innerHTML = bill;
-document.getElementById('gstno').innerHTML = result[0];
-document.getElementById('aadhar').innerHTML = result[1];
-document.getElementById('name').innerHTML = result[2];
-document.getElementById('amount').innerHTML = result[3];
-document.getElementById('gst').innerHTML = result[4];
-    }
+		web3.eth.defaultAccount = web3.eth.accounts[0];
+      var gs = web3.eth.contract(ABI);
+      var todo = gs.at(address);
+      status = todo.searchBill(bill, gstin, { gas: 3000000 }, (err, result) => {
+        if (result[0] == "") {
+          M.toast({ html: 'No such bill found', classes: 'rounded black' });
+        }
+        else {
+          document.getElementById('form1').style.display = 'none';
+          document.getElementById('form2').style.display = 'block';
+          document.getElementById('billno').innerHTML = bill;
+          document.getElementById('gstno').innerHTML = result[0];
+          document.getElementById('aadhar').innerHTML = result[1];
+          document.getElementById('name').innerHTML = result[2];
+          document.getElementById('amount').innerHTML = result[3];
+          document.getElementById('gst').innerHTML = result[4];
+        }
+      });
 
-  }
+
+    }
 </script>
 </body>
 </html>

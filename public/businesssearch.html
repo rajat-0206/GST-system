@@ -131,34 +131,37 @@ p{
     <br>
     <br>
 <script>
-  function bsearch(){
-    gstin = document.getElementById('gstin').value;
-    if(typeof web3!='undefined'){
-				web3=new Web3(web3.currentProvider);
-		}else{
-				web3=new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
-		}
-		web3.eth.defaultAccount=web3.eth.accounts[0];
-		var gs = web3.eth.contract(ABI);
-    var todo = gs.at(address);
-    result = todo.getBusinessDetails(gstin,{gas:3000000});
-    if(result[0]=="")
-    {
-      M.toast({html: 'Business not registered', classes: 'rounded black'});
-    }
-    else{
-    document.getElementById('form1').style.display ='none';
-    document.getElementById('form2').style.display ='block';
-    document.getElementById('accno').innerHTML = result[0];
-document.getElementById('gstno').innerHTML = result[1];
-document.getElementById('aadhar').innerHTML = result[3];
-document.getElementById('name').innerHTML = result[2];
-document.getElementById('phone').innerHTML = result[4];
-document.getElementById('gst').innerHTML = result[7];
-document.getElementById('billgen').innerHTML = result[8];
-    }
+  function bsearch() {
+      gstin = document.getElementById('gstin').value;
+      if (typeof web3 != 'undefined') {
+        web3 = new Web3(web3.currentProvider);
+      } else {
+        web3 = new Web3(new Web3.providers.HttpProvider("https://rpc-mumbai.matic.today"));
+      }
+      web3.eth.defaultAccount = web3.eth.accounts[0];
+      var gs = web3.eth.contract(ABI);
+      var todo = gs.at(address);
+      data = todo.getBusinessDetails(gstin, { gas: 3000000 }, (err, result) => {
+        if (!err) {
+          if (result[0] == "") {
+            M.toast({ html: 'Business not registered', classes: 'rounded black' });
+          }
+          else {
+            document.getElementById('form1').style.display = 'none';
+            document.getElementById('form2').style.display = 'block';
+            document.getElementById('accno').innerHTML = result[0];
+            document.getElementById('gstno').innerHTML = result[1];
+            document.getElementById('aadhar').innerHTML = result[3];
+            document.getElementById('name').innerHTML = result[2];
+            document.getElementById('phone').innerHTML = result[4];
+            document.getElementById('gst').innerHTML = result[7];
+            document.getElementById('billgen').innerHTML = result[8];
+          }
 
-  }
+        }
+      });
+
+    }
 </script>
 </body>
 </html>

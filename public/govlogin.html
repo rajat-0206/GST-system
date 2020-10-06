@@ -43,17 +43,20 @@
 			web3.eth.defaultAccount = web3.eth.accounts[0];
 			var gs = web3.eth.contract(ABI);
 			var todo = gs.at(address);
-			var status = todo.governmentLogin(uname, word);
-			if (status == "Login Sucessful") {
-				document.cookie =uname + "; expires=Fri, 1 Jan 2021 12:00:00 UTC";
-				console.log(document.cookie);
-				window.location.href = "govdashboard.html";
-			} else {
-				M.toast({
-					html: "Wrong Creditional",
-					classes: "rounded black",
-				});
-			}
+			var status = todo.governmentLogin(uname, word,(err,result) => {
+				if(!err){
+					if (result == "Login Sucessful") {
+						localStorage.removeItem("gstno");
+						window.location.href = "govdashboard.html";
+					} else {
+						M.toast({
+							html: "Wrong Creditional",
+							classes: "rounded black",
+						});
+					}
+				}
+			});
+			
 		}
 	</script>
 	<body>
